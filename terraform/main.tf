@@ -22,7 +22,7 @@ resource "google_compute_address" "static_ip" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "my-vm-instance"
-  machine_type = "n1-standard-1"
+  machine_type = "e2-micro"
   zone         = "us-central1-a"
 
   boot_disk {
