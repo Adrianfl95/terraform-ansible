@@ -20,24 +20,24 @@
     - name: Clonar repositorio de la aplicación
       git:
         repo: "{{ repo }}"
-        dest: /var/www/myapp
+        dest: /var/www/spring-petclinic-angular
         version: master
 
     - name: Instalar dependencias de la aplicación
       command: npm install
       args:
-        chdir: /var/www/myapp
+        chdir: /var/www/spring-petclinic-angular
 
     - name: Configurar archivo de host de Nginx
       template:
         src: nginx.conf.j2
-        dest: /etc/nginx/sites-available/myapp
+        dest: /etc/nginx/sites-available/spring-petclinic-angular
       notify: Reiniciar Nginx
 
     - name: Activar archivo de host de Nginx
       file:
-        src: /etc/nginx/sites-available/myapp
-        dest: /etc/nginx/sites-enabled/myapp
+        src: /etc/nginx/sites-available/spring-petclinic-angular
+        dest: /etc/nginx/sites-enabled/spring-petclinic-angular
         state: link
       notify: Reiniciar Nginx
 
