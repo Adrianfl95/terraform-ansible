@@ -19,7 +19,7 @@
 
     - name: Clonar repositorio de la aplicación
       git:
-        repo: <URL_DEL_REPOSITORIO>
+        repo: "{{ repo }}"
         dest: /var/www/myapp
         version: master
 
